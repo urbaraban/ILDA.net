@@ -88,9 +88,9 @@ namespace Test_ILDA.net
             for (int i = 0; i < count; i += 1)
             {
                 IldaPoint ildaPoint = new IldaPoint(
-                    (byte)(random.Next(0, short.MaxValue) - half),
-                    (byte)(random.Next(0, short.MaxValue) - half),
-                    (byte)(random.Next(0, short.MaxValue) - half),
+                    (short)(random.Next(0, short.MaxValue) - half),
+                    (short)(random.Next(0, short.MaxValue) - half),
+                    (short)(random.Next(0, short.MaxValue) - half),
                     false);
 
                 ildaPoint.PalIndex = (byte)random.Next(0, pal_count - 1);
