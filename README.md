@@ -40,9 +40,9 @@ IldaFrame frame = new IldaFrame(byte Version);
 for (int i = 0; i < 100; i += 1)
 {
     IldaPoint ildaPoint = new IldaPoint(
-        (byte)(random.Next(0, short.MaxValue) - half),
-        (byte)(random.Next(0, short.MaxValue) - half),
-        (byte)(random.Next(0, short.MaxValue) - half),
+        (short)(random.Next(0, short.MaxValue) - half),
+        (short)(random.Next(0, short.MaxValue) - half),
+        (short)(random.Next(0, short.MaxValue) - half),
         false);
 
     ildaPoint.PalIndex = (byte)random.Next(0, pal_count - 1);
