@@ -2,7 +2,7 @@
 
 > I apologize, but my spoken English is pretty bad. I use a translator for this documentation.
 
-This .net6 library allows you to read, edit, and write ILDA (International Laser Display Association) format of all formats.
+This .net6 library allows you to read, edit, and write ILDA (International Laser Display Association) format in all version.
 
 ILDA formats according to the [documentation](https://www.ilda.com/resources/StandardsDocs/ILDA_IDTF14_rev011.pdf):
 
