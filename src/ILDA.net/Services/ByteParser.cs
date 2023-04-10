@@ -26,7 +26,8 @@ namespace ILDA.net.Services
 
         public short GetShort()
         {
-            short shr = BitConverter.ToInt16(b, Index);
+            byte[] _b = b.Skip(Index).Take(2).Reverse().ToArray();
+            short shr = BitConverter.ToInt16(_b);
             Index += 2;
             return shr;
         }

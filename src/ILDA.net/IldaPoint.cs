@@ -4,9 +4,9 @@ namespace ILDA.net
 {
     public class IldaPoint 
     {
-        public short X { get; set; } = 0;
-        public short Y { get; set; } = 0;
-        public short Z { get; set; } = 0;
+        public short X { get; set; } = 255;
+        public short Y { get; set; } = 255;
+        public short Z { get; set; } = 255;
         public IldaColor Color { get; set; }
         public byte PalIndex { get; set; } = 0;
         public bool IsBlanked { get; set; } = false;
@@ -24,11 +24,11 @@ namespace ILDA.net
         public byte[] GetBytes(int version)
         {
             List<byte> bytes = new List<byte>();
-            bytes.AddRange(BitConverter.GetBytes(this.X));
-            bytes.AddRange(BitConverter.GetBytes(this.Y));
+            bytes.AddRange(BitConverter.GetBytes(this.X).Reverse());
+            bytes.AddRange(BitConverter.GetBytes(this.Y).Reverse());
             if (version % 2  == 0)
             {
-                bytes.AddRange(BitConverter.GetBytes(this.Z));
+                bytes.AddRange(BitConverter.GetBytes(this.Z).Reverse());
             }
 
             if (this.IsBlanked == true)

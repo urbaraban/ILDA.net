@@ -6,7 +6,7 @@ namespace ILDA.net
 {
     public class IldaFile : Collection<IldaFrame>
     {
-        public IldaPalette? Palette { get; set; }
+        public IldaPalette? Palette { get; set; } = IldaPalette.GetDefaultPalette();
         public string Location { get; set; } = "No have path";
 
         public void Add(IHeadItem headItem)
@@ -150,10 +150,11 @@ namespace ILDA.net
                     byte ildaversion = bp.GetByte();                    //Byte 8: format code
                     string name = bp.GetString(8).TrimEnd(' ');         //Bytes 9-16: Name
                     string companyname = bp.GetString(8).TrimEnd(' ');  //Bytes 17-24: Company Name
-                    UInt16 itemscount = bp.GetBEUInt16();                   //Bytes 25-26: Elements count int Items (point or colors)  
+                    UInt16 itemscount = bp.GetBEUInt16();               //Bytes 25-26: Elements count int Items (point or colors)  
                     bp.Skip(4);                                         //Bytes 27-28: Item number //Bytes 29-30: Items total
                     byte scannerNumber = bp.GetByte();                  //Byte 31: Scanner head
                     bp.Skip(1);                                         //Byte 32: Reserved
+
                     if (itemscount > 0)
                     {
                         IHeadItem? head;
