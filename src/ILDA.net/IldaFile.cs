@@ -6,7 +6,7 @@ namespace ILDA.net
 {
     public class IldaFile : Collection<IldaFrame>
     {
-        public IldaPalette? Palette { get; set; } = IldaPalette.GetDefaultPalette();
+        public IldaPalette Palette { get; set; } = IldaPalette.GetDefaultPalette();
         public string Location { get; set; } = "empty";
 
         public void Add(IHeadItem headItem)

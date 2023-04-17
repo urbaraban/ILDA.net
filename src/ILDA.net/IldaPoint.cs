@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace ILDA.net
+﻿namespace ILDA.net
 {
     public class IldaPoint 
     {
