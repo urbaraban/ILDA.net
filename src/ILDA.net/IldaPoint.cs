@@ -19,7 +19,7 @@
             IsBlanked = isBlanked;
         }
 
-        public byte[] GetBytes(int version)
+        public byte[] GetBytes(int version, bool isLast)
         {
             List<byte> bytes = new List<byte>();
             bytes.AddRange(BitConverter.GetBytes(this.X).Reverse());
@@ -29,10 +29,16 @@
                 bytes.AddRange(BitConverter.GetBytes(this.Z).Reverse());
             }
 
+            byte status = 0x00;
             if (this.IsBlanked == true)
-                bytes.Add((byte)0x40);
-            else
-                bytes.Add((byte)0);
+            {
+                status |= 0x64;
+            }
+            if (isLast == true)
+            {
+                status |= 128;
+            }
+            bytes.Add(status);
 
             if (version < 2)
             {

@@ -42,7 +42,7 @@ namespace ILDA.net
             List<byte> bytes = new List<byte>();
             for (int i = 0; i < Items.Count; i += 1)
             {
-                bytes.AddRange(this[i].GetBytes(this.IldaVersion));
+                bytes.AddRange(this[i].GetBytes(this.IldaVersion, i == Items.Count - 1));
             }
             return bytes.ToArray();
         }
