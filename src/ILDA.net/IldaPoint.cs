@@ -32,7 +32,7 @@
             byte status = 0x00;
             if (this.IsBlanked == true)
             {
-                status |= 0x64;
+                status |= 0x40;
             }
             if (isLast == true)
             {
